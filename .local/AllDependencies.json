@@ -952,6 +952,18 @@
             "locale": "zh-CN"
           }
         }
+      },
+      "UiPathTeam.ArchiveLib.Activity/1.1.1": {
+        "type": "package",
+        "dependencies": {
+          "UiPath.System.Activities": "18.3.6864.20561"
+        },
+        "compile": {
+          "lib/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/ArchiveLib.dll": {}
+        }
       }
     }
   },
@@ -1780,6 +1792,18 @@
         "uipath.webapi.activities.1.4.4.nupkg.sha512",
         "uipath.webapi.activities.nuspec"
       ]
+    },
+    "UiPathTeam.ArchiveLib.Activity/1.1.1": {
+      "sha512": "EOdEZgr5J3ntlYt33VYfwPFJps0A0O2+Dv10+W66+zF0DsWQ5/BKquvG7pN0jip1IibzwE3AfrQoT8PLZfzNeQ==",
+      "type": "package",
+      "path": "uipathteam.archivelib.activity/1.1.1",
+      "files": [
+        ".nupkg.metadata",
+        "lib/net45/ArchiveLib.dll",
+        "lib/net45/project.json",
+        "uipathteam.archivelib.activity.1.1.1.nupkg.sha512",
+        "uipathteam.archivelib.activity.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -1789,7 +1813,8 @@
       "UiPath.Mail.Activities >= 1.7.2 <= 1.7.2",
       "UiPath.System.Activities >= 19.10.1 <= 19.10.1",
       "UiPath.UIAutomation.Activities >= 19.10.1 <= 19.10.1",
-      "UiPath.WebAPI.Activities >= 1.4.4 <= 1.4.4"
+      "UiPath.WebAPI.Activities >= 1.4.4 <= 1.4.4",
+      "UiPathTeam.ArchiveLib.Activity >= 1.1.1 <= 1.1.1"
     ]
   },
   "packageFolders": {
@@ -1830,6 +1855,11 @@
             "include": "Runtime",
             "target": "Package",
             "version": "[1.4.4, 1.4.4]"
+          },
+          "UiPathTeam.ArchiveLib.Activity": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.1.1, 1.1.1]"
           }
         }
       }
