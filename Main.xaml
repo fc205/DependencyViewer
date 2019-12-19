@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="552,1339" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="552,2712" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
@@ -51,7 +51,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="532,1239" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Outer Sequence" sap:VirtualizedContainerService.HintSize="532,2612" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="aBearer" />
       <Variable x:TypeArguments="x:String" Default="https://windows-2dt7aee" Name="anEndpoint" />
@@ -59,6 +59,9 @@
       <Variable x:TypeArguments="x:String" Name="aPackageVersion" />
       <Variable x:TypeArguments="scg:List(s:Tuple(s:Tuple(x:String, x:String), s:Tuple(x:String, x:String)))" Default="[New List(Of Tuple(Of Tuple(Of String, String), Tuple(Of String, String)))]" Name="aListOfDependencies" />
       <Variable x:TypeArguments="x:String" Default="temp\" Name="aFolderName" />
+      <Variable x:TypeArguments="s:Tuple(x:String, x:String)[]" Name="anArrayOfLibraryVersions" />
+      <Variable x:TypeArguments="scg:List(s:Tuple(x:String, x:String))" Default="[New List(Of Tuple(Of String, String))]" Name="aListOfPackages" />
+      <Variable x:TypeArguments="scg:List(s:Tuple(x:String, x:String))" Default="[New List(Of Tuple(Of String, String))]" Name="aListOfLibrariesInOrchestrator" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -81,13 +84,13 @@
         <OutArgument x:TypeArguments="s:String[]" x:Key="ArrayOfFolderIds">[anArrayOfFolderIds]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="490,893" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[anArrayOfFolderIds]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="490,1097" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[anArrayOfFolderIds]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="folderid" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="454,759" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="454,963" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="s:Tuple(x:String, x:String)[]" Name="anArrayOfPackageVersions" />
             </Sequence.Variables>
@@ -104,13 +107,13 @@
                 <OutArgument x:TypeArguments="s:Tuple(x:String, x:String)[]" x:Key="ArrayOfPackageVersions">[anArrayOfPackageVersions]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:ForEach x:TypeArguments="s:Tuple(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,540" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[anArrayOfPackageVersions]">
+            <ui:ForEach x:TypeArguments="s:Tuple(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="412,744" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[anArrayOfPackageVersions]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="s:Tuple(x:String, x:String)">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Tuple(x:String, x:String)" Name="aTuplePackageNameVersion" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,406" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,610" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="ui:GenericValue" Name="aFileNameRoot" />
                     </Sequence.Variables>
@@ -148,6 +151,12 @@
                         <InOutArgument x:TypeArguments="scg:List(s:Tuple(s:Tuple(x:String, x:String), s:Tuple(x:String, x:String)))" x:Key="ListOfDependencies">[aListOfDependencies]</InOutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
+                    <ui:InvokeCode ContinueOnError="{x:Null}" Code="aListOfPackages.Add(aTuplePackageNameVersion)" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+                      <ui:InvokeCode.Arguments>
+                        <InOutArgument x:TypeArguments="scg:List(s:Tuple(x:String, x:String))" x:Key="aListOfPackages">[aListOfPackages]</InOutArgument>
+                        <InArgument x:TypeArguments="s:Tuple(x:String, x:String)" x:Key="aTuplePackageNameVersion">[aTuplePackageNameVersion]</InArgument>
+                      </ui:InvokeCode.Arguments>
+                    </ui:InvokeCode>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>
@@ -156,5 +165,80 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetArrayOfLibraries workflow" sap:VirtualizedContainerService.HintSize="490,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="GetArrayOfLibraries.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="Bearer">[aBearer]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[anEndpoint]</InArgument>
+        <OutArgument x:TypeArguments="s:Tuple(x:String, x:String)[]" x:Key="ArrayOfLibrariesVersions">[anArrayOfLibraryVersions]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:ForEach x:TypeArguments="s:Tuple(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="490,744" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[anArrayOfLibraryVersions]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="s:Tuple(x:String, x:String)">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="s:Tuple(x:String, x:String)" Name="aTupleLibraryVersion" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,610" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="aFileNameRoot" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[aFileNameRoot]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[aFolderName + aTupleLibraryVersion.Item1 + "_" + aTupleLibraryVersion.Item2]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="DownloadLibraryVersion.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="Bearer">[aBearer]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="FileName">[aFileNameRoot + ".zip"]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[anEndpoint]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="PackageName">[aTupleLibraryVersion.Item1]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="PackageVersion">[aTupleLibraryVersion.Item2]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ProcessPackage workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="ProcessPackage.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="Bearer">[aBearer]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[anEndpoint]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="FolderId" />
+                <InArgument x:TypeArguments="x:String" x:Key="PackageName">[aTupleLibraryVersion.Item1]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="PackageVersion">[aTupleLibraryVersion.Item2]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="FileNameRoot">[aFileNameRoot]</InArgument>
+                <InOutArgument x:TypeArguments="scg:List(s:Tuple(s:Tuple(x:String, x:String), s:Tuple(x:String, x:String)))" x:Key="ListOfDependencies">[aListOfDependencies]</InOutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeCode ContinueOnError="{x:Null}" Code="aListOfLibrariesInOrchestrator.Add(aTupleLibraryVersion)" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+              <ui:InvokeCode.Arguments>
+                <InOutArgument x:TypeArguments="scg:List(s:Tuple(x:String, x:String))" x:Key="aListOfLibrariesInOrchestrator">[aListOfLibrariesInOrchestrator]</InOutArgument>
+                <InArgument x:TypeArguments="s:Tuple(x:String, x:String)" x:Key="aTupleLibraryVersion">[aTupleLibraryVersion]</InArgument>
+              </ui:InvokeCode.Arguments>
+            </ui:InvokeCode>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GenerateDotFile workflow" sap:VirtualizedContainerService.HintSize="490,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="GenerateDotFile.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:List(s:Tuple(s:Tuple(x:String, x:String), s:Tuple(x:String, x:String)))" x:Key="ListOfDependencies">[aListOfDependencies]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="OutputFileName">output</InArgument>
+        <InArgument x:TypeArguments="scg:List(s:Tuple(x:String, x:String))" x:Key="ListOfPackages">[aListOfPackages]</InArgument>
+        <InArgument x:TypeArguments="scg:List(s:Tuple(x:String, x:String))" x:Key="ListOfLibrariesInOrchestrator">[aListOfLibrariesInOrchestrator]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="490,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[aListOfDependencies.Count]" />
   </Sequence>
 </Activity>

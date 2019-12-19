@@ -11,10 +11,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>782,2717</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>782,3313</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessPackage_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="46">
+    <scg:List x:TypeArguments="x:String" Capacity="25">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -39,10 +39,11 @@
       <x:String>Newtonsoft.Json.Linq</x:String>
       <x:String>Newtonsoft.Json</x:String>
       <x:String>System.Xml.Serialization</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="21">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -63,18 +64,18 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ProcessPackage" sap:VirtualizedContainerService.HintSize="762,2617" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ProcessPackage" sap:VirtualizedContainerService.HintSize="762,3213" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="720,2525" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="720,3121" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="682,2298" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence sap:VirtualizedContainerService.HintSize="682,2894" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="didSucceed" />
             <Variable x:TypeArguments="x:String" Name="anErrorMessage" />
@@ -82,6 +83,7 @@
             <Variable x:TypeArguments="sxl:XDocument" Name="aContentXml" />
             <Variable x:TypeArguments="s:Object[]" Name="aListOfDependencies" />
             <Variable x:TypeArguments="x:Object" Name="aListOfDependenciesObj" />
+            <Variable x:TypeArguments="s:Tuple(x:String, x:String)" Name="anOldDependency" />
           </Sequence.Variables>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -100,7 +102,7 @@
               <Throw Exception="[New Exception(&quot;Did not succeed in unzipping file &gt; &quot; + anErrorMessage)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
             </If.Else>
           </If>
-          <ui:ReadTextFile Content="[aContentFile]" DisplayName="Read Text File" FileName="[FileNameRoot + &quot;\&quot; + PackageName + &quot;.nuspec&quot;]" sap:VirtualizedContainerService.HintSize="640,132" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
+          <ui:ReadTextFile Content="[aContentFile]" DisplayName="Read Text File" FileName="[FileNameRoot + &quot;\&quot; + PackageName + &quot;.nuspec&quot;]" sap:VirtualizedContainerService.HintSize="640,84" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -116,6 +118,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:DeserializeXml>
+          <Assign sap:VirtualizedContainerService.HintSize="640,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s:Tuple(x:String, x:String)">[anOldDependency]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s:Tuple(x:String, x:String)">[New Tuple(Of String, String)(PackageName,PackageVersion)]</InArgument>
+            </Assign.Value>
+          </Assign>
           <Assign sap:VirtualizedContainerService.HintSize="640,60" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="s:Object[]">[aListOfDependencies]</OutArgument>
@@ -124,13 +134,13 @@
               <InArgument x:TypeArguments="s:Object[]">[aContentXml.Descendants(aContentXml.Root.Name.Namespace + "dependency").ToArray]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="640,1308" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[aListOfDependencies]">
+          <ui:ForEach x:TypeArguments="sxl:XElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="640,1852" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[aListOfDependencies]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="sxl:XElement">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="sxl:XElement" Name="dependency" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="604,1174" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="604,1718" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="scg:IEnumerable(sxl:XAttribute)" Name="aDependencyAttributes" />
                     <Variable x:TypeArguments="x:String" Name="aDependencyName" />
@@ -199,7 +209,7 @@
                                   <OutArgument x:TypeArguments="x:String">[aDependencyVersion]</OutArgument>
                                 </Assign.To>
                                 <Assign.Value>
-                                  <InArgument x:TypeArguments="x:String">[attribute.Value]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[attribute.Value.Trim({"["c,"]"c})]</InArgument>
                                 </Assign.Value>
                               </Assign>
                             </If.Then>
@@ -208,7 +218,36 @@
                       </ActivityAction>
                     </ui:ForEach.Body>
                   </ui:ForEach>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="562,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Detected dependency of &quot; + PackageName + &quot;_&quot; + PackageVersion + &quot; to &quot; + aDependencyName + &quot;_&quot; + aDependencyVersion]" />
+                  <If Condition="[aDependencyName + aDependencyVersion &lt;&gt; &quot;&quot;]" sap:VirtualizedContainerService.HintSize="562,635" sap2010:WorkflowViewState.IdRef="If_4">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,487" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="s:Tuple(x:String, x:String)" Name="aNewDependency" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Detected dependency of &quot; + PackageName + &quot;_&quot; + PackageVersion + &quot; to &quot; + aDependencyName + &quot;_&quot; + aDependencyVersion]" />
+                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:Tuple(x:String, x:String)">[aNewDependency]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:Tuple(x:String, x:String)">[New Tuple(Of String, String)(aDependencyName,aDependencyVersion)]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="ListOfDependencies.Add(New Tuple(Of Tuple(Of String, String), Tuple(Of String, String))(anOldDependency,aNewDependency))" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+                          <ui:InvokeCode.Arguments>
+                            <InOutArgument x:TypeArguments="scg:List(s:Tuple(s:Tuple(x:String, x:String), s:Tuple(x:String, x:String)))" x:Key="ListOfDependencies">[ListOfDependencies]</InOutArgument>
+                            <InArgument x:TypeArguments="s:Tuple(x:String, x:String)" x:Key="aNewDependency">[aNewDependency]</InArgument>
+                            <InArgument x:TypeArguments="s:Tuple(x:String, x:String)" x:Key="anOldDependency">[anOldDependency]</InArgument>
+                          </ui:InvokeCode.Arguments>
+                        </ui:InvokeCode>
+                      </Sequence>
+                    </If.Then>
+                  </If>
                 </Sequence>
               </ActivityAction>
             </ui:ForEach.Body>

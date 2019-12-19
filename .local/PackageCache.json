@@ -22,48 +22,6 @@
     },
     {
       "Package": {
-        "Id": "UiPath.Mail.Activities",
-        "Version": "1.7.2"
-      },
-      "Assemblies": [
-        "C:\\Users\\Administrator\\.nuget\\packages\\bouncycastle/1.8.5\\lib/BouncyCastle.Crypto.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\interop.domino.dll/1.0.0\\lib/Interop.Domino.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.exchange.webservices/2.2.0\\lib/40/Microsoft.Exchange.WebServices.Auth.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.exchange.webservices/2.2.0\\lib/40/Microsoft.Exchange.WebServices.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\system.valuetuple/4.5.0\\lib/net461/System.ValueTuple.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.mail.activities/1.7.2\\lib/net461/MailKit.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.mail.activities/1.7.2\\lib/net461/MimeKit.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.mail.activities/1.7.2\\lib/net461/UiPath.Mail.Activities.Design.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.mail.activities/1.7.2\\lib/net461/UiPath.Mail.Activities.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.mail.activities/1.7.2\\lib/net461/UiPath.Mail.dll"
-      ]
-    },
-    {
-      "Package": {
-        "Id": "UiPath.System.Activities",
-        "Version": "19.10.1"
-      },
-      "Assemblies": [
-        "C:\\Users\\Administrator\\.nuget\\packages\\csvhelper/2.13.5\\lib/net40-client/CsvHelper.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnet.signalr.client/2.4.0\\lib/net45/Microsoft.AspNet.SignalR.Client.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.rest.clientruntime/2.3.20\\lib/net461/Microsoft.Rest.ClientRuntime.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Docking.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Ribbon.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Shared.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.SyntaxEditor.Addons.DotNet.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.SyntaxEditor.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Text.Addons.DotNet.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Text.LLParser.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Text.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Wizard.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/UiPath.OrchestratorClient.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/UiPath.System.Activities.Design.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/UiPath.System.Activities.dll"
-      ]
-    },
-    {
-      "Package": {
         "Id": "UiPath.UIAutomation.Activities",
         "Version": "19.10.1"
       },
@@ -133,19 +91,43 @@
         "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnet.signalr.client/2.4.0\\lib/net45/Microsoft.AspNet.SignalR.Client.dll",
         "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.rest.clientruntime/2.3.20\\lib/net461/Microsoft.Rest.ClientRuntime.dll",
         "C:\\Users\\Administrator\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Docking.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Ribbon.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Shared.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.SyntaxEditor.Addons.DotNet.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.SyntaxEditor.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Text.Addons.DotNet.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Text.LLParser.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Text.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/ActiproSoftware.Wizard.Wpf.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/UiPath.OrchestratorClient.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/UiPath.System.Activities.Design.dll",
-        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.10.1\\lib/net461/UiPath.System.Activities.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Docking.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Ribbon.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Shared.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.SyntaxEditor.Addons.DotNet.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.SyntaxEditor.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Text.Addons.DotNet.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Text.LLParser.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Text.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Wizard.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/UiPath.OrchestratorClient.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/UiPath.System.Activities.Design.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/UiPath.System.Activities.dll",
         "C:\\Users\\Administrator\\.nuget\\packages\\uipathteam.archivelib.activity/1.1.1\\lib/net45/ArchiveLib.dll"
+      ]
+    },
+    {
+      "Package": {
+        "Id": "UiPath.System.Activities",
+        "Version": "19.12.0-preview"
+      },
+      "Assemblies": [
+        "C:\\Users\\Administrator\\.nuget\\packages\\csvhelper/2.13.5\\lib/net40-client/CsvHelper.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnet.signalr.client/2.4.0\\lib/net45/Microsoft.AspNet.SignalR.Client.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.rest.clientruntime/2.3.20\\lib/net461/Microsoft.Rest.ClientRuntime.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\newtonsoft.json/11.0.2\\lib/net45/Newtonsoft.Json.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Docking.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Ribbon.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Shared.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.SyntaxEditor.Addons.DotNet.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.SyntaxEditor.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Text.Addons.DotNet.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Text.LLParser.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Text.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/ActiproSoftware.Wizard.Wpf.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/UiPath.OrchestratorClient.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/UiPath.System.Activities.Design.dll",
+        "C:\\Users\\Administrator\\.nuget\\packages\\uipath.system.activities/19.12.0-preview\\lib/net461/UiPath.System.Activities.dll"
       ]
     }
   ],
@@ -154,11 +136,6 @@
     "AvalonEdit": {
       "Id": "AvalonEdit",
       "Version": "5.0.3",
-      "Dependencies": []
-    },
-    "BouncyCastle": {
-      "Id": "BouncyCastle",
-      "Version": "1.8.5",
       "Dependencies": []
     },
     "ClosedXML": {
@@ -191,11 +168,6 @@
       "Version": "2.4.2",
       "Dependencies": []
     },
-    "interop.domino.dll": {
-      "Id": "interop.domino.dll",
-      "Version": "1.0.0",
-      "Dependencies": []
-    },
     "Microsoft.AspNet.SignalR.Client": {
       "Id": "Microsoft.AspNet.SignalR.Client",
       "Version": "2.4.0",
@@ -205,11 +177,6 @@
           "Item2": "[6.0.4, )"
         }
       ]
-    },
-    "Microsoft.Exchange.WebServices": {
-      "Id": "Microsoft.Exchange.WebServices",
-      "Version": "2.2.0",
-      "Dependencies": []
     },
     "Microsoft.Rest.ClientRuntime": {
       "Id": "Microsoft.Rest.ClientRuntime",
@@ -251,11 +218,6 @@
       "Version": "1.0.0",
       "Dependencies": []
     },
-    "System.ValueTuple": {
-      "Id": "System.ValueTuple",
-      "Version": "4.5.0",
-      "Dependencies": []
-    },
     "UiPath": {
       "Id": "UiPath",
       "Version": "19.10.7243.31457",
@@ -291,28 +253,6 @@
         }
       ]
     },
-    "UiPath.Mail.Activities": {
-      "Id": "UiPath.Mail.Activities",
-      "Version": "1.7.2",
-      "Dependencies": [
-        {
-          "Item1": "System.ValueTuple",
-          "Item2": "[4.5.0, )"
-        },
-        {
-          "Item1": "Microsoft.Exchange.WebServices",
-          "Item2": "[2.2.0, )"
-        },
-        {
-          "Item1": "BouncyCastle",
-          "Item2": "[1.8.5, )"
-        },
-        {
-          "Item1": "interop.domino.dll",
-          "Item2": "[1.0.0, )"
-        }
-      ]
-    },
     "UiPath.OCR.Contracts": {
       "Id": "UiPath.OCR.Contracts",
       "Version": "2.2.1",
@@ -320,7 +260,7 @@
     },
     "UiPath.System.Activities": {
       "Id": "UiPath.System.Activities",
-      "Version": "19.10.1",
+      "Version": "19.12.0-preview",
       "Dependencies": [
         {
           "Item1": "CsvHelper",
