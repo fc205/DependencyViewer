@@ -1,7 +1,7 @@
 # DependencyViewer
 
 This tool draws the dependency tree of all Processes and Libraries on an Orchestrator.
-The graph that is grenerated can be really useful to know which Processes or Libraries need to be re-tested after a modification. 
+The graph that is generated can be really useful to know which Processes or Libraries need to be re-tested after a modification. 
 
 ![Sample Output](SampleOutputFiltered.png)
 
