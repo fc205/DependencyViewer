@@ -4,6 +4,8 @@
     <x:Property Name="OutputFileName" Type="InArgument(x:String)" />
     <x:Property Name="ListOfPackages" Type="InArgument(scg:List(s:Tuple(x:String, x:String)))" />
     <x:Property Name="ListOfLibrariesInOrchestrator" Type="InArgument(scg:List(s:Tuple(x:String, x:String)))" />
+    <x:Property Name="OutputFileExtension" Type="InArgument(x:String)" />
+    <x:Property Name="DotExecutable" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -80,7 +82,7 @@
               <OutArgument x:TypeArguments="x:String">[anOutput]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[anOutput + "subgraph cluster_0 {"+ vbCrLf + "label=""Processes"";"+ vbCrLf + "node [fillcolor=orange,color=black,fontcolor=black];" + vbCrLf]</InArgument>
+              <InArgument x:TypeArguments="x:String">[anOutput + "subgraph cluster_0 {"+ vbCrLf + "label=""Processes""; style=""dotted"";"+ vbCrLf + "node [fillcolor=orange,color=black,fontcolor=black];" + vbCrLf]</InArgument>
             </Assign.Value>
           </Assign>
           <ui:ForEach x:TypeArguments="s:Tuple(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="562,286" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[ListOfPackages]">
@@ -112,7 +114,7 @@
               <OutArgument x:TypeArguments="x:String">[anOutput]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String" xml:space="preserve">[anOutput + "}"+ vbCrLf  + "subgraph cluster_1 {"+ vbCrLf + "label=""Libraries"";"+ vbCrLf + "node [fillcolor=pink,color=black,fontcolor=black];" + vbCrLf]</InArgument>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">[anOutput + "}"+ vbCrLf  + "subgraph cluster_1 {"+ vbCrLf + "label=""Libraries""; style=""dotted"";"+ vbCrLf + "node [fillcolor=pink,color=black,fontcolor=black];" + vbCrLf]</InArgument>
             </Assign.Value>
           </Assign>
           <ui:ForEach x:TypeArguments="s:Tuple(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="562,286" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[ListOfLibrariesInOrchestrator]">
@@ -220,7 +222,7 @@
             </Assign.Value>
           </Assign>
           <ui:WriteTextFile DisplayName="Write Text File" FileName="[OutputFileName + &quot;.dot&quot;]" sap:VirtualizedContainerService.HintSize="562,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[anOutput]" />
-          <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[OutputFileName + &quot;.dot -Tsvg -o &quot;+OutputFileName+&quot;.svg&quot;]" DisplayName="Start Process" FileName="C:\Program Files (x86)\Graphviz2.38\bin\dot.exe" sap:VirtualizedContainerService.HintSize="562,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
+          <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[OutputFileName + &quot;.dot -T&quot;+OutputFileExtension +&quot; -o &quot;+OutputFileName+&quot;.&quot; + OutputFileExtension]" DisplayName="Start Process" FileName="[DotExecutable]" sap:VirtualizedContainerService.HintSize="562,87" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>

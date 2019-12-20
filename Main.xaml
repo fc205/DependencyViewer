@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="552,2712" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="552,2946" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
       <x:String>System.Activities</x:String>
@@ -51,36 +51,48 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Outer Sequence" sap:VirtualizedContainerService.HintSize="532,2612" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Outer Sequence" sap:VirtualizedContainerService.HintSize="532,2846" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="aBearer" />
-      <Variable x:TypeArguments="x:String" Default="https://windows-2dt7aee" Name="anEndpoint" />
       <Variable x:TypeArguments="s:String[]" Name="anArrayOfFolderIds" />
-      <Variable x:TypeArguments="x:String" Name="aPackageVersion" />
       <Variable x:TypeArguments="scg:List(s:Tuple(s:Tuple(x:String, x:String), s:Tuple(x:String, x:String)))" Default="[New List(Of Tuple(Of Tuple(Of String, String), Tuple(Of String, String)))]" Name="aListOfDependencies" />
-      <Variable x:TypeArguments="x:String" Default="temp\" Name="aFolderName" />
       <Variable x:TypeArguments="s:Tuple(x:String, x:String)[]" Name="anArrayOfLibraryVersions" />
       <Variable x:TypeArguments="scg:List(s:Tuple(x:String, x:String))" Default="[New List(Of Tuple(Of String, String))]" Name="aListOfPackages" />
       <Variable x:TypeArguments="scg:List(s:Tuple(x:String, x:String))" Default="[New List(Of Tuple(Of String, String))]" Name="aListOfLibrariesInOrchestrator" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Default="[New Dictionary(Of String, String)]" Name="aConfig" />
+      <Variable x:TypeArguments="x:String" Default="Config.xlsx" Name="aConfigFile" />
+      <Variable x:TypeArguments="s:String[]" Name="aLibrariesFilter" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="490,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="InitConfig.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="oConfig">[aConfig]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="iConfigFile">[aConfigFile]</InArgument>
+        <OutArgument x:TypeArguments="s:String[]" x:Key="oLibrariesFilter">[aLibrariesFilter]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="490,67" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4" />
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="490,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="GetAuthenticationBearer.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="Tenant">Default</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Username">Admin</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Password">qwerty123</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[anEndpoint]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Tenant">[aConfig("Tenant")]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Username">[aConfig("Username")]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Password">[aConfig("Password")]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[aConfig("Endpoint")]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="Bearer">[aBearer]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetArrayOfFolderIds workflow" sap:VirtualizedContainerService.HintSize="490,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="GetArrayOfFolderIds.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="Bearer">[aBearer]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[anEndpoint]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[aConfig("Endpoint")]</InArgument>
         <OutArgument x:TypeArguments="s:String[]" x:Key="ArrayOfFolderIds">[anArrayOfFolderIds]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
@@ -88,7 +100,7 @@
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:String" Name="folderid" />
+            <DelegateInArgument x:TypeArguments="x:String" Name="aFolderId" />
           </ActivityAction.Argument>
           <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="454,963" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
@@ -102,8 +114,8 @@
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetArrayOfPackages workflow" sap:VirtualizedContainerService.HintSize="412,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="GetArrayOfPackages.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="Bearer">[aBearer]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[anEndpoint]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="FolderId">[folderid]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[aConfig("Endpoint")]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="FolderId">[aFolderId]</InArgument>
                 <OutArgument x:TypeArguments="s:Tuple(x:String, x:String)[]" x:Key="ArrayOfPackageVersions">[anArrayOfPackageVersions]</OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
@@ -127,24 +139,24 @@
                         <OutArgument x:TypeArguments="ui:GenericValue">[aFileNameRoot]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
-                        <InArgument x:TypeArguments="ui:GenericValue">[aFolderName + aTuplePackageNameVersion.Item1 + "_" + aTuplePackageNameVersion.Item2]</InArgument>
+                        <InArgument x:TypeArguments="ui:GenericValue">[aConfig("TempFolder") + aTuplePackageNameVersion.Item1 + "_" + aTuplePackageNameVersion.Item2]</InArgument>
                       </Assign.Value>
                     </Assign>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="DownloadPackageVersion.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="x:String" x:Key="Bearer">[aBearer]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="FileName">[aFileNameRoot + ".zip"]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[anEndpoint]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[aConfig("Endpoint")]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="PackageVersion">[aTuplePackageNameVersion.Item2]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="PackageName">[aTuplePackageNameVersion.Item1]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="FolderId">[folderid]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="FolderId">[aFolderId]</InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ProcessPackage workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="ProcessPackage.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="x:String" x:Key="Bearer">[aBearer]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[anEndpoint]</InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="FolderId">[folderid]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[aConfig("Endpoint")]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="FolderId">[aFolderId]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="PackageName">[aTuplePackageNameVersion.Item1]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="PackageVersion">[aTuplePackageNameVersion.Item2]</InArgument>
                         <InArgument x:TypeArguments="x:String" x:Key="FileNameRoot">[aFileNameRoot]</InArgument>
@@ -168,8 +180,9 @@
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GetArrayOfLibraries workflow" sap:VirtualizedContainerService.HintSize="490,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="GetArrayOfLibraries.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="Bearer">[aBearer]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[anEndpoint]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[aConfig("Endpoint")]</InArgument>
         <OutArgument x:TypeArguments="s:Tuple(x:String, x:String)[]" x:Key="ArrayOfLibrariesVersions">[anArrayOfLibraryVersions]</OutArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="LibrariesFilter">[aLibrariesFilter]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:ForEach x:TypeArguments="s:Tuple(x:String, x:String)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="490,744" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[anArrayOfLibraryVersions]">
@@ -192,14 +205,14 @@
                 <OutArgument x:TypeArguments="x:String">[aFileNameRoot]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[aFolderName + aTupleLibraryVersion.Item1 + "_" + aTupleLibraryVersion.Item2]</InArgument>
+                <InArgument x:TypeArguments="x:String">[aConfig("TempFolder") + aTupleLibraryVersion.Item1 + "_" + aTupleLibraryVersion.Item2]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="DownloadLibraryVersion.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="Bearer">[aBearer]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="FileName">[aFileNameRoot + ".zip"]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[anEndpoint]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[aConfig("Endpoint")]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="PackageName">[aTupleLibraryVersion.Item1]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="PackageVersion">[aTupleLibraryVersion.Item2]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
@@ -207,7 +220,7 @@
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ProcessPackage workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="ProcessPackage.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="Bearer">[aBearer]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[anEndpoint]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Endpoint">[aConfig("Endpoint")]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="FolderId" />
                 <InArgument x:TypeArguments="x:String" x:Key="PackageName">[aTupleLibraryVersion.Item1]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="PackageVersion">[aTupleLibraryVersion.Item2]</InArgument>
@@ -234,9 +247,11 @@
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke GenerateDotFile workflow" sap:VirtualizedContainerService.HintSize="490,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="GenerateDotFile.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:List(s:Tuple(s:Tuple(x:String, x:String), s:Tuple(x:String, x:String)))" x:Key="ListOfDependencies">[aListOfDependencies]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="OutputFileName">output</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="OutputFileName">[aConfig("OutputFileName")]</InArgument>
         <InArgument x:TypeArguments="scg:List(s:Tuple(x:String, x:String))" x:Key="ListOfPackages">[aListOfPackages]</InArgument>
         <InArgument x:TypeArguments="scg:List(s:Tuple(x:String, x:String))" x:Key="ListOfLibrariesInOrchestrator">[aListOfLibrariesInOrchestrator]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="OutputFileExtension">[aConfig("OutputFileExtension")]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="DotExecutable">[aConfig("GraphvizLocation")]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="490,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[aListOfDependencies.Count]" />
