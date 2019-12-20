@@ -333,7 +333,7 @@
           "lib/net45/UiPath.OCR.Contracts.dll": {}
         }
       },
-      "UiPath.System.Activities/19.12.0-preview": {
+      "UiPath.System.Activities/19.10.1": {
         "type": "package",
         "dependencies": {
           "CsvHelper": "2.13.5",
@@ -1179,10 +1179,10 @@
         "uipath.ocr.contracts.nuspec"
       ]
     },
-    "UiPath.System.Activities/19.12.0-preview": {
-      "sha512": "YqbutEDOmNuOetTNaC1XLLl59NoJiaydFQLie+vhEjNmnLIyYtf6A9tBPJko7vGCmjZXi3a9bHNDKoU7lv3Caw==",
+    "UiPath.System.Activities/19.10.1": {
+      "sha512": "fLiUgsXLiNDP9PRF0QhAz0BQG2ZPtjj05c0kmZ3YKsO3FOBJfthI0joWdkvakGFFbPUPr90RDHq46vw5F+aneQ==",
       "type": "package",
-      "path": "uipath.system.activities/19.12.0-preview",
+      "path": "uipath.system.activities/19.10.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1221,7 +1221,7 @@
         "lib/net461/tr/UiPath.System.Activities.resources.dll",
         "lib/net461/zh-CN/UiPath.System.Activities.Design.resources.dll",
         "lib/net461/zh-CN/UiPath.System.Activities.resources.dll",
-        "uipath.system.activities.19.12.0-preview.nupkg.sha512",
+        "uipath.system.activities.19.10.1.nupkg.sha512",
         "uipath.system.activities.nuspec"
       ]
     },
@@ -1511,7 +1511,7 @@
     "": [],
     ".NETFramework,Version=v4.6.1": [
       "UiPath.Excel.Activities >= 2.7.2 <= 2.7.2",
-      "UiPath.System.Activities >= 19.12.0-preview <= 19.12.0-preview",
+      "UiPath.System.Activities >= 19.10.1 <= 19.10.1",
       "UiPath.UIAutomation.Activities >= 19.10.1 <= 19.10.1",
       "UiPath.WebAPI.Activities >= 1.4.4 <= 1.4.4",
       "UiPathTeam.ArchiveLib.Activity >= 1.1.1 <= 1.1.1"
@@ -1522,11 +1522,11 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "UsingComplexLibraries",
-      "projectName": "UsingComplexLibraries",
-      "projectPath": "C:\\Users\\Administrator\\Documents\\UiPath\\UsingComplexLibraries\\.local",
+      "projectUniqueName": "DependencyViewer",
+      "projectName": "DependencyViewer",
+      "projectPath": "C:\\Users\\Administrator\\Documents\\UiPath\\DependencyViewer\\.local",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Documents\\UiPath\\UsingComplexLibraries\\.local"
+      "outputPath": "C:\\Users\\Administrator\\Documents\\UiPath\\DependencyViewer\\.local"
     },
     "frameworks": {
       "net461": {
@@ -1539,7 +1539,7 @@
           "UiPath.System.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[19.12.0-preview, 19.12.0-preview]"
+            "version": "[19.10.1, 19.10.1]"
           },
           "UiPath.UIAutomation.Activities": {
             "include": "Runtime",

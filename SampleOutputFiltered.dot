@@ -1,0 +1,24 @@
+digraph {
+rankdir = LR; node [shape="box",style=filled,fillcolor=pink]
+subgraph cluster_0 {
+label="Processes"; style="dotted";
+node [fillcolor=orange,color=black,fontcolor=black];
+"BlankProcessLibrary\n1.0.7292.24230";
+"MessageQueueExample\n1.0.77";
+}
+subgraph cluster_1 {
+label="Libraries"; style="dotted";
+node [fillcolor=pink,color=black,fontcolor=black];
+"AnotherBlankLibrary\n1.0.1";
+"BlankLibrary\n1.1.1.2";
+"CommonLibrary\n1.0.1";
+"Libraries.ZZZ.AAA\n1.0.1";
+"UiPathTeam.AppDependency.Activities\n1.0.5";
+}
+"BlankProcessLibrary\n1.0.7292.24230"->"AnotherBlankLibrary\n1.0.1";
+"BlankProcessLibrary\n1.0.7292.24230"->"BlankLibrary\n1.1.1.2";
+"AnotherBlankLibrary\n1.0.1"->"CommonLibrary\n1.0.1";
+"BlankLibrary\n1.1.1.2"->"CommonLibrary\n1.0.1";
+"BlankLibrary\n1.1.1.2"->"UiPathTeam.AppDependency.Activities\n1.0.5";
+
+}
